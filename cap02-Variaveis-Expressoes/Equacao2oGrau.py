@@ -1,3 +1,6 @@
+# Esse codigo foi desenvolvido por 
+#    David Barbosa em Out/2024 no IFRN
+
 a = int ( input('Digite o valor para a'))
 b = int ( input('Digite o valor para b'))
 c = int ( input ( 'Digite o valor para c'))
