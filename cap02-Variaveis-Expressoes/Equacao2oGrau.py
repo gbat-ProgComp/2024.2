@@ -1,5 +1,5 @@
 # Esse codigo foi desenvolvido por 
-#    David Barbosa em Out/2024 no IFRN
+#    David Barbosa em Nov/2024 no IFRN
 
 a = int ( input('Digite o valor para a'))
 b = int ( input('Digite o valor para b'))
