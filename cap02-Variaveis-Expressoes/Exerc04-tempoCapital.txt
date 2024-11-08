@@ -1,0 +1,14 @@
+# Esse codigo foi desenvolvido por 
+#    João Victor Gomes em Nov/2024 no IFRN
+
+capital = float(input("informe o seu capital inicial: "))
+taxa = float(input("informe a porcentagem da taxa: "))
+valorFinal = float(input("informe o valor final que deseja estimar: "))
+
+import math
+montanteLog = math.log(valorFinal/capital)
+taxaTempoLog = math.log(1+taxa/100)
+montanteFinal = montanteLog/taxaTempoLog
+
+print("a valor estimado será alcançado em:", round(montanteFinal/12, 2), "anos")
+print("a valor estimado será alcançado em:", math.ceil(montanteFinal), "meses")
