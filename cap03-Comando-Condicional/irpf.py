@@ -1,4 +1,4 @@
-salario = int(input("Digite oo valor do salario: "))
+salario = float(input("Digite oo valor do salario: "))
 
 if salario <= 2250.20:
      print("está isento do imposto d renda")
@@ -16,7 +16,7 @@ elif 3751.06 <= salario <= 4664.68:
      print ("o valor da aliquota é 22.5%,o valor da parcela a pagar é R$662.77")
      irpf = 22.5/100 * salario - 662.77
 
-elif salario > 4664.69:
+elif salario >= 4664.69:
      print ("o valor da aliquota é 27.5%,o valor da parcela a pagar é R$ 896")
      irpf = 27.5/100 * salario - 896
 
