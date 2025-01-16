@@ -1,3 +1,12 @@
+'''
+caminhos = [
+ [3], 
+ [7, 4], 
+ [2, 4, 6], 
+ [8,5,9,3] 
+]  
+ 
+'''
 caminhos = [
  [75],
  [95, 64],
@@ -16,4 +25,10 @@ caminhos = [
  [ 4, 62, 98, 27, 23,  0, 70, 98, 73, 93, 38, 53, 60,  0, 23]
 ]
 
-print (caminhos)
+for l in range(1, len(caminhos)):
+    caminhos[l][0] += caminhos[l-1][0]
+    for c in range (1, len(caminhos[l])-1):
+        caminhos[l][c] += max(caminhos[l-1][c-1], caminhos[l-1][c])    
+    caminhos[l][l] += caminhos[l-1][l-1]
+
+print (max(caminhos[len(caminhos) -1]))
