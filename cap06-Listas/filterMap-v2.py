@@ -1,5 +1,3 @@
-from functools import reduce
-
 dados = '''0718730-0;AABAN VASCONCELOS ZYZZYAG;3;3;1,5;10
 0763186-3;ABDIAS NICACIO SANTOS SILVA PIRES BELFORT;3;3;3;10
 0737811-4;ABDRAMAR PEREIRA SOUSA NASCIMENTO;6;3;5,25;21,25
@@ -43062,30 +43060,24 @@ dados = '''0718730-0;AABAN VASCONCELOS ZYZZYAG;3;3;1,5;10
 0758980-8;ZULMARA ROMANO GUERREIRO LIRA CABRAL;5,25;3;2,25;21,25
 0625370-9;ZULMIRA GOMES DE ARAUJO;1,5;3,75;0,75;8,75'''
 
-candidatos = dados.replace(',','.').split('\n')
+linhas = dados.replace(',','.').split('\n')
+linhas = [linha.split(";") for linha in linhas]
+linhas = [[linha[1],
+           float(linha[2]), 
+           float(linha[3]), 
+           float(linha[4]), 
+           float(linha[5])]
+          for linha in linhas]
 
+linhas = [linha+[sum(linha[1:])]
+          for linha in linhas]
 
-dadosTratados = []
-for candidato in candidatos:
-    candidato = candidato.split(";")
-    for pos in range(2, 6):
-        candidato[pos] = float(candidato[pos])
-    candidato.append(sum(candidato[2:6]))
-    dadosTratados.append(candidato)
+aprovados = filter (lambda x: 
+                        x[1] > 2 and 
+                        x[2] > 2 and
+                        x[3] > 2 and
+                        x[4] > 2 and
+                        x[5] > 10, linhas)
 
-aprovados = list(filter (lambda cand:
-                            cand[2] > 2 and
-                            cand[3] > 2 and
-                            cand[4] > 2 and
-                            cand[5] > 2 and
-                            cand[6] >= 10,
-                        dadosTratados))
-
-aprovados = sorted(aprovados, key=lambda c: c[6], reverse=True)
-for cand in aprovados[:10]:
-    print (f"{cand[1]:40s} {cand[6]:7.2f}")
-    
-media20prim = reduce(lambda c1, c2: c1+c2, 
-                      [cand[6] for cand in aprovados[:20]])/20
-
-print (f"A media dos 20 primeiros foi {media20prim:6.2f}")
+for aprovado in aprovados:
+    print (aprovado[0], aprovado[5])
