@@ -18,3 +18,19 @@ bigchars = [
 ]
 
 nome = input ("Digite seu nome: ")
+for letra in nome:
+    # Encontra os limites da letra em todas as linhas
+    maiorFim    = -1
+    menorInicio = 10000
+
+    for linha in bigchars:
+        inicio = linha.find(letra)
+        fim =  linha.rfind(letra)
+        if inicio < menorInicio:
+            menorInicio = inicio
+        if fim > maiorFim:
+            maiorFim = fim
+    
+    # Extrair a parte da letra em cada linha
+    for linha in bigchars:
+        print (linha[menorInicio:maiorFim+1])

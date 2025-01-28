@@ -17,4 +17,27 @@ bigchars = [
 "AAAAAAA                   AAAAAAABBBBBBBBBBBBBBBBB           CCCCCCCCCCCCCDDDDDDDDDDDDD        EEEEEEEEEEEEEEEEEEEEEEFFFFFFFFFFF                   GGGGGG   GGGGHHHHHHHHH     HHHHHHHHHIIIIIIIIII     JJJJJJJJJ       KKKKKKKKK    KKKKKKKLLLLLLLLLLLLLLLLLLLLLLLLMMMMMMMM               MMMMMMMMNNNNNNNN         NNNNNNN     OOOOOOOOO     PPPPPPPPPP               QQQQQQQQ::::QQRRRRRRRR     RRRRRRR SSSSSSSSSSSSSSS         TTTTTTTTTTT            UUUUUUUUU                  VVV                        WWW             WWW            XXXXXXX       XXXXXXX    YYYYYYYYYYYYY    ZZZZZZZZZZZZZZZZZZZ     000000000     11111111111122222222222222222222 333333333333333           4444444444     555555555          666666666     77777777                 888888888        99999999        "
 ]
 
+inicios = []
+fins = []
+
 nome = input ("Digite seu nome: ")
+for letra in "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789":
+    # Encontra os limites da letra em todas as linhas
+    maiorFim    = -1
+    menorInicio = 10000
+
+    for linha in bigchars:
+        inicio = linha.find(letra)
+        fim =  linha.rfind(letra)
+        if inicio < menorInicio:
+            menorInicio = inicio
+        if fim > maiorFim:
+            maiorFim = fim
+    
+    inicios.append(menorInicio)
+    fins.append(maiorFim)
+    
+for letra in nome:
+    for linha in bigchars:
+        print (linha[inicios[ord(letra)-ord('A')]:fins[ord(letra)-ord('A')]+1])
+
