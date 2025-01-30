@@ -2,3 +2,10 @@ texto = '''Procurar a nossa felicidade através da felicidade dos outros - acons
 - Não estou pregando o ascetismo, a santidade, não estou elogiando o puro espírito de sacrifício e renúncia. Tudo isso seria inumano, significaria ainda uma fuga da vida. Mas o que procuro, o que desejo, é segurar a vida pelos ombros e estreitá-la contra o peito, beijá-la na face. Vida, entretanto, não é o ambiente em que te achas. As maneiras estudadas, as frases convencionais, o excesso de conforto, os perfumes caros e a preocupação do dinheiro são apenas uma péssima contrafação da vida. Buscar a poesia da vida será coisa que tenha nexo? 
 Ele agora vivia... Tinha tido apenas a ilusão de viver, mas na verdade andara morto por entre os homens. 
 O dia mais importante da minha vida foi aquele em que, recordando todos os meus erros, achei que já chegara a hora de procurar uma nova maneira de ser útil ao próximo, de dar novo rumo às minhas relações humanas. Que era que eu tinha feito senão satisfazer os meus desejos, o meu egoísmo? Podia ser considerada uma criatura boa apenas porque não matava, porque não roubava, porque não agredia? A bondade não deve ser uma virtude passiva. No dia em que eu achei Deus, encontrei a paz para mim e ao mesmo tempo percebi que de certa maneira não haveria paz para mim. Descobri que a paz interior só se conquista com o sacrifício da paz exterior. Era preciso fazer alguma coisa pelos outros. O Mundo está cheio de sofrimento, de gritos de socorro. Que tinha eu feito até então para diminuir esse sofrimento, para atender a esses apelos? Eu via em meu redor pessoas aflitas que, para se salvarem, esperavam apenas a mão que as apoiasse, nada mais que isso. E Deus dera-me duas mãos. Pensei tudo isso numa noite de insônia. Quando o dia nasceu, senti que tinha nascido de novo com ele. Era uma mulher nova.'''
+
+frequencia = {}
+for palavra in texto.split():
+    frequencia[palavra] = frequencia.get(palavra, 0) + 1
+print (frequencia)
+
+sorted (frequencia)
