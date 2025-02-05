@@ -8,4 +8,5 @@ for palavra in texto.split():
     frequencia[palavra] = frequencia.get(palavra, 0) + 1
 print (frequencia)
 
+
 sorted (frequencia)
