@@ -17,12 +17,3 @@
    fizeram pedidos ao servidor. O nome desse arquivo deve 
    ser "ips.txt"
    
-   
-      
-   
-   
-s =  "Isto é um texto com 'quase' nenhum significado 'prático'"
-
-posInicio = s.find("'")
-posFim = s.find("'", posInicio+1)
-quase = s[posInicio+1:posFim]
